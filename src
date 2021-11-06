@@ -29,3 +29,22 @@ plt.show()
 contigency= pd.crosstab(df['Survived'], df['Pclass']) 
 contigency
 stats.chi2_contingency(contigency)
+
+#Cross tabulation between two variables survived and sex
+contigency= pd.crosstab(df['Survived'], df['Sex']) 
+contigency
+
+#Plotting the bar graph for the variables survived and sex
+X = ['Male', 'Female']
+y1 = [109, 233]
+y2 = [468, 81]
+plt.bar(X, y1, color='g'  , label = "survived")
+plt.bar(X, y2,bottom=y1, color='b', label = "died")
+plt.legend()
+plt.show()
+
+#Running chi square test
+contigency= pd.crosstab(df['Survived'], df['Sex']) 
+contigency
+stats.chi2_contingency(contigency)
+
