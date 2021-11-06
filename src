@@ -1,1 +1,31 @@
+#importing the required libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+%matplotlib inline
 
+#Reading the CSV file
+tic = pd.read_csv("/Users/sunkarisashank/Desktop/PDD DA/CPSC/assignment/ass 3/titanic.csv")
+df = pd.DataFrame(tic)
+
+#Cross tabulation between two variables
+contigency= pd.crosstab(df['Survived'], df['Pclass']) 
+contigency
+
+#Plotting the bar graph 
+
+X = ['First class', 'Second class', 'Third class']
+y1 = [136, 87, 119]
+y2 = [80, 97, 372]
+plt.bar(X, y1, color='g' , label = "survived")
+plt.bar(X, y2,bottom=y1, color='b', label = "died")
+plt.xlabel("Passenger Class")
+plt.ylabel("Count")
+plt.legend()
+plt.show()
+
+#Running chi square test
+contigency= pd.crosstab(df['Survived'], df['Pclass']) 
+contigency
+stats.chi2_contingency(contigency)
