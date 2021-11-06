@@ -48,3 +48,9 @@ contigency= pd.crosstab(df['Survived'], df['Sex'])
 contigency
 stats.chi2_contingency(contigency)
 
+#Dropping rows with null values
+df.dropna(axis=1, inplace = True)
+
+#plotting box plot for the survived and Age
+sns.set_style("whitegrid") 
+sns.boxplot(x = 'Survived', y = 'Age', data = tic)
